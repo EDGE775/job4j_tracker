@@ -4,9 +4,7 @@ import java.time.format.DateTimeFormatter;
 
 public class StartUI {
     public static void main(String[] args) {
-        Tracker tracker = new Tracker();
-        Item item1 = new Item();
-        tracker.add(item1);
-        System.out.println(tracker.findById(1));
+        Item item1 = new Item(2123, "item");
+        System.out.println(item1);
     }
 }

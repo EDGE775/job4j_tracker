@@ -62,10 +62,10 @@ public class Tracker {
         boolean rsl = index != -1;
         if (rsl) {
             int start = index + 1;
-            int length = items.length - index - 1;
+            int length = size - index - 1;
             items[index] = null;
             System.arraycopy(items, start, items, index, length);
-            items[items.length - 1] = null;
+            items[size - 1] = null;
             size--;
         }
         return rsl;

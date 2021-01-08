@@ -1,10 +1,91 @@
 package ru.job4j.tracker;
 
-import java.time.format.DateTimeFormatter;
+import java.util.Scanner;
 
 public class StartUI {
+    public void init(Scanner scanner, Tracker tracker) {
+        boolean run = true;
+        while (run) {
+            this.showMenu();
+            System.out.println("Select:");
+            int select = Integer.valueOf(scanner.nextLine());
+            if (select == 0) {
+                System.out.println("=== Create a new Item ====");
+                System.out.print("Enter name: ");
+                String name = scanner.nextLine();
+                Item item = new Item(name);
+                tracker.add(item);
+            } else if (select == 1) {
+                System.out.println("=== Find all Items ====");
+                Item[] items = tracker.findAll();
+                if (items.length == 0) {
+                    System.out.println("В базе данных нет ни одной записи");
+                } else {
+                    for (Item item : items) {
+                        System.out.println(item.toString());
+                    }
+                }
+            } else if (select == 2) {
+                System.out.println("=== Edit Item ====");
+                System.out.print("Enter the Item id to edit: ");
+                int id = Integer.valueOf(scanner.nextLine());
+                System.out.print("Enter the new Item name: ");
+                String newName = scanner.nextLine();
+                Item newItem = new Item(id, newName);
+                if (tracker.replace(id, newItem)) {
+                    System.out.println("Операция выполнена успешно!");
+                } else {
+                    System.out.println("Ошибка! Операция не выполнена!");
+                }
+            } else if (select == 3) {
+                System.out.println("=== Delete Item ====");
+                System.out.print("Enter the Item id to delete: ");
+                int id = Integer.valueOf(scanner.nextLine());
+                if (tracker.delete(id)) {
+                    System.out.println("Операция выполнена успешно!");
+                } else {
+                    System.out.println("Ошибка! Операция не выполнена!");
+                }
+            } else if (select == 4) {
+                System.out.println("=== Find Item by Id ====");
+                System.out.print("Enter the Item id to find: ");
+                int id = Integer.valueOf(scanner.nextLine());
+                Item item = tracker.findById(id);
+                String rsl = item == null ? "Заявка с таким id не найдена" : item.toString();
+                System.out.println(rsl);
+            } else if (select == 5) {
+                System.out.println("=== Find Items by name ====");
+                System.out.print("Enter the Item name to find: ");
+                String name = scanner.nextLine();
+                Item[] items = tracker.findByName(name);
+                if (items.length == 0) {
+                    System.out.println("Заявки с таким именем не найдены");
+                } else {
+                    for (Item item : items) {
+                        System.out.println(item.toString());
+                    }
+                }
+            } else if (select == 6) {
+                run = false;
+                System.out.println("Выход из программы");
+            }
+        }
+    }
+
+    private void showMenu() {
+        System.out.println("Menu.");
+        System.out.println("0. Add new Item");
+        System.out.println("1. Show all items");
+        System.out.println("2. Edit item");
+        System.out.println("3. Delete item");
+        System.out.println("4. Find item by Id");
+        System.out.println("5. Find items by name");
+        System.out.println("6. Exit Program");
+    }
+
     public static void main(String[] args) {
-        Item item1 = new Item(2123, "item");
-        System.out.println(item1);
+        Scanner scanner = new Scanner(System.in);
+        Tracker tracker = new Tracker();
+        new StartUI().init(scanner, tracker);
     }
 }

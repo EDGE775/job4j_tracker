@@ -1,6 +1,6 @@
 package ru.job4j.tracker;
 
-public class ReplaceItemAction implements UserAction{
+public class ReplaceItemAction implements UserAction {
     private final Output out;
 
     public ReplaceItemAction(Output out) {

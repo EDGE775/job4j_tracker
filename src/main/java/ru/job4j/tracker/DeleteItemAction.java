@@ -1,6 +1,6 @@
 package ru.job4j.tracker;
 
-public class DeleteItemAction implements UserAction{
+public class DeleteItemAction implements UserAction {
     private final Output out;
 
     public DeleteItemAction(Output out) {

@@ -1,7 +1,5 @@
 package ru.job4j.tracker;
 
-import org.hamcrest.Matcher;
-import org.junit.Ignore;
 import org.junit.Test;
 
 import static org.hamcrest.core.Is.is;
@@ -15,7 +13,7 @@ public class StartUITest {
         Output out = new StubOutput();
         String[] answers = {"0", "Item name", "1"};
         Input input = new StubInput(answers);
-        Tracker tracker = new Tracker();
+        Tracker tracker = Tracker.getInstance();
         UserAction[] actions = {
                 new CreateItemAction(out),
                 new ExitAction()
@@ -28,7 +26,7 @@ public class StartUITest {
     @Test
     public void whenReplaceItem() {
         Output out = new StubOutput();
-        Tracker tracker = new Tracker();
+        Tracker tracker = Tracker.getInstance();
         Item item = tracker.add(new Item("Replaced item"));
         Input in = new StubInput(new String[]{"0", "1", "New item name", "1"});
         UserAction[] actions = {
@@ -42,7 +40,7 @@ public class StartUITest {
     @Test
     public void whenDeleteItem() {
         Output out = new StubOutput();
-        Tracker tracker = new Tracker();
+        Tracker tracker = Tracker.getInstance();
         Item item = tracker.add(new Item("Deleted Item"));
         Input in = new StubInput(new String[]{"0", "1", "1"});
         UserAction[] actions = {
@@ -56,7 +54,7 @@ public class StartUITest {
     @Test
     public void whenFindItemById() {
         Output out = new StubOutput();
-        Tracker tracker = new Tracker();
+        Tracker tracker = Tracker.getInstance();
         Item item = tracker.add(new Item("New Item"));
         Input in = new StubInput(new String[]{"0", String.valueOf(item.getId()), "1"});
         UserAction[] actions = {
@@ -78,7 +76,7 @@ public class StartUITest {
     @Test
     public void whenFindItems() {
         Output out = new StubOutput();
-        Tracker tracker = new Tracker();
+        Tracker tracker = Tracker.getInstance();
         Item item1 = tracker.add(new Item("New Item 1"));
         Item item2 = tracker.add(new Item("New Item 2"));
         Input in = new StubInput(new String[]{"0", "1"});
@@ -102,7 +100,7 @@ public class StartUITest {
     @Test
     public void whenFindItemsByName() {
         Output out = new StubOutput();
-        Tracker tracker = new Tracker();
+        Tracker tracker = Tracker.getInstance();
         Item item1 = tracker.add(new Item("Finding Item 1"));
         Item item2 = tracker.add(new Item("Finding Item 2"));
         Input in = new StubInput(new String[]{"0", "Finding Item 1", "1"});
@@ -128,7 +126,7 @@ public class StartUITest {
         Input in = new StubInput(
                 new String[]{"0"}
         );
-        Tracker tracker = new Tracker();
+        Tracker tracker = Tracker.getInstance();
         UserAction[] actions = {
                 new ExitAction()
         };
@@ -142,7 +140,7 @@ public class StartUITest {
     public void whenInvalidExit() {
         Output out = new StubOutput();
         Input in = new StubInput(new String[]{"1", "0"});
-        Tracker tracker = new Tracker();
+        Tracker tracker = Tracker.getInstance();
         UserAction[] actions = {
                 new ExitAction()
         };

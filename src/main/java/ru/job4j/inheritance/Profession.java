@@ -31,6 +31,4 @@ public class Profession {
     public String getBirthday() {
         return birthday;
     }
-
-
 }

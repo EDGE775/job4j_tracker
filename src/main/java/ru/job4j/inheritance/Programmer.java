@@ -6,7 +6,12 @@ public class Programmer extends Engineer {
     public Programmer() {
     }
 
-    public Programmer(String name, String surname, String education, String birthday, String rank, String currentProject) {
+    public Programmer(String name,
+                      String surname,
+                      String education,
+                      String birthday,
+                      String rank,
+                      String currentProject) {
         super(name, surname, education, birthday, rank);
         this.currentProject = currentProject;
     }

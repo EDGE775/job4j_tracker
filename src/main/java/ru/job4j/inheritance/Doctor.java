@@ -6,7 +6,11 @@ public class Doctor extends Profession {
     public Doctor() {
     }
 
-    public Doctor(String name, String surname, String education, String birthday, String experience) {
+    public Doctor(String name,
+                  String surname,
+                  String education,
+                  String birthday,
+                  String experience) {
         super(name, surname, education, birthday);
         this.experience = experience;
     }

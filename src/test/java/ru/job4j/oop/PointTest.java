@@ -12,7 +12,7 @@ public class PointTest {
         Point first = new Point(1, 0, 0);
         Point second = new Point(0, 0, 0);
         double rsl = first.distance3D(second);
-        assertThat(rsl, is((double)1));
+        assertThat(rsl, is((double) 1));
     }
 
     @Test
@@ -20,6 +20,6 @@ public class PointTest {
         Point first = new Point(1, 5, 0);
         Point second = new Point(1, 5, 6);
         double rsl = first.distance3D(second);
-        assertThat(rsl, is((double)6));
+        assertThat(rsl, is((double) 6));
     }
 }

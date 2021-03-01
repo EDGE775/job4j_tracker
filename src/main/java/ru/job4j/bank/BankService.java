@@ -34,7 +34,9 @@ public class BankService {
 
     public Account findByRequisite(String passport, String requisite) {
         User user = this.findByPassport(passport);
-        if (user == null) return null;
+        if (user == null) {
+            return null;
+        }
         for (Account account : users.get(user)) {
             if (account.getRequisite().equals(requisite)) {
                 return account;
@@ -43,7 +45,11 @@ public class BankService {
         return null;
     }
 
-    public boolean transferMoney(String srcPassport, String srcRequisite, String destPassport, String destRequisite, double amount) {
+    public boolean transferMoney(String srcPassport,
+                                 String srcRequisite,
+                                 String destPassport,
+                                 String destRequisite,
+                                 double amount) {
         boolean rsl = false;
         Account srcAccount = this.findByRequisite(srcPassport, srcRequisite);
         Account destAccount = this.findByRequisite(destPassport, destRequisite);

@@ -27,7 +27,10 @@ public class ItemTest {
         for (Item item : items) {
             result.add(item.getName());
         }
-        List<String> expect = Arrays.asList("Арнольд Борисович", "Борис Кристофорович", "Малой Альберт", "Янковский Ян");
+        List<String> expect = Arrays.asList("Арнольд Борисович",
+                "Борис Кристофорович",
+                "Малой Альберт",
+                "Янковский Ян");
         assertThat(result, is(expect));
     }
 
@@ -47,7 +50,10 @@ public class ItemTest {
         for (Item item : items) {
             result.add(item.getName());
         }
-        List<String> expect = Arrays.asList("Янковский Ян", "Малой Альберт", "Борис Кристофорович", "Арнольд Борисович");
+        List<String> expect = Arrays.asList("Янковский Ян",
+                "Малой Альберт",
+                "Борис Кристофорович",
+                "Арнольд Борисович");
         assertThat(result, is(expect));
     }
 }

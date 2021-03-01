@@ -12,7 +12,7 @@ public class Matches {
         while (matches > 0) {
             System.out.printf("Игрок №%d, ваш ход! Возьмите от 1 до 3 спичек: ", user);
             int match = Integer.valueOf(in.nextLine());
-            if (match < 4 && match >0) {
+            if (match < 4 && match > 0) {
                 matches -= match;
                 System.out.printf("Осталось %d спичек" + System.lineSeparator(), matches);
                 winner = user;

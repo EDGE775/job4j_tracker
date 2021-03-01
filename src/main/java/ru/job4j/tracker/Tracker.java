@@ -72,4 +72,9 @@ public final class Tracker {
         }
         return rsl;
     }
+
+    public void clearAll() {
+        items.clear();
+        ids = 1;
+    }
 }

@@ -17,6 +17,7 @@ public class StartUITest {
         String[] answers = {"0", "Item name", "1"};
         Input input = new StubInput(answers);
         Tracker tracker = Tracker.getInstance();
+        tracker.clearAll();
         List<UserAction> actions = Arrays.asList(
                 new CreateItemAction(out),
                 new ExitAction());
@@ -29,6 +30,7 @@ public class StartUITest {
     public void whenReplaceItem() {
         Output out = new StubOutput();
         Tracker tracker = Tracker.getInstance();
+        tracker.clearAll();
         Item item = tracker.add(new Item("Replaced item"));
         Input in = new StubInput(new String[]{"0",
                 String.valueOf(item.getId()),
@@ -105,6 +107,7 @@ public class StartUITest {
     public void whenFindItemsByName() {
         Output out = new StubOutput();
         Tracker tracker = Tracker.getInstance();
+        tracker.clearAll();
         tracker.add(new Item("Finding Item 1"));
         tracker.add(new Item("Finding Item 2"));
         Input in = new StubInput(new String[]{"0", "Finding Item 1", "1"});
@@ -130,6 +133,7 @@ public class StartUITest {
                 new String[]{"0"}
         );
         Tracker tracker = Tracker.getInstance();
+        tracker.clearAll();
         List<UserAction> actions = Arrays.asList(
                 new ExitAction());
         new StartUI(out).init(in, tracker, actions);
@@ -143,6 +147,7 @@ public class StartUITest {
         Output out = new StubOutput();
         Input in = new StubInput(new String[]{"1", "0"});
         Tracker tracker = Tracker.getInstance();
+        tracker.clearAll();
         List<UserAction> actions = Arrays.asList(
                 new ExitAction());
         new StartUI(out).init(in, tracker, actions);

@@ -5,7 +5,8 @@ import java.util.List;
 import java.util.function.Function;
 
 public class SearchAtt {
-    private static List<Attachment> filter(List<Attachment> list, Function<Attachment, Boolean> func) {
+    private static List<Attachment> filter(List<Attachment> list,
+                                           Function<Attachment, Boolean> func) {
         List<Attachment> rsl = new ArrayList<>();
         for (Attachment att : list) {
             if (func.apply(att)) {

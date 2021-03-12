@@ -14,6 +14,7 @@ public class StreamUsage {
             this.spent = spent;
         }
     }
+
     public static void main(String[] args) {
         //Код из предыдущего задания:
         //List<Integer> list = List.of(1, 3, -6, 7, -10);

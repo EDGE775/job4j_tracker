@@ -8,14 +8,12 @@ import java.util.function.Predicate;
 public class EasyStream {
     private List<Integer> values;
 
-    private EasyStream() {
-
+    private EasyStream(List<Integer> source) {
+        this.values = source;
     }
 
     public static EasyStream of(List<Integer> source) {
-        EasyStream easyStream = new EasyStream();
-        easyStream.values = source;
-        return easyStream;
+        return new EasyStream(source);
     }
 
     public EasyStream map(Function<Integer, Integer> fun) {

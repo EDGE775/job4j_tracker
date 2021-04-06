@@ -1,5 +1,8 @@
 package ru.job4j.tracker;
 
+import ru.job4j.tracker.data.entity.Item;
+import ru.job4j.tracker.data.repository.ItemRepository;
+
 import java.util.List;
 
 public class FindItemsAction implements UserAction {
@@ -15,9 +18,9 @@ public class FindItemsAction implements UserAction {
     }
 
     @Override
-    public boolean execute(Input input, Tracker tracker) {
+    public boolean execute(Input input, ItemRepository itemRepository) {
         out.println("=== Find all Items ====");
-        List<Item> items = tracker.findAll();
+        List<Item> items = itemRepository.findAll();
         if (items.size() == 0) {
             out.println("В базе данных нет ни одной записи");
         } else {

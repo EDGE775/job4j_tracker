@@ -10,8 +10,8 @@ public class ValidateInput implements Input {
     }
 
     @Override
-    public String askStr(String question) {
-        return in.askStr(question);
+    public String printQuestionAndReadAnswer(String question) {
+        return in.printQuestionAndReadAnswer(question);
     }
 
     @Override

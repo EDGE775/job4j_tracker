@@ -1,5 +1,8 @@
 package ru.job4j.tracker;
 
+import ru.job4j.tracker.data.entity.Item;
+import ru.job4j.tracker.data.repository.ItemRepository;
+
 public class CreateItemAction implements UserAction {
     private final Output out;
 
@@ -9,15 +12,15 @@ public class CreateItemAction implements UserAction {
 
     @Override
     public String name() {
-        return "Create";
+        return Action.CREATE_ITEM.getTitle();
     }
 
     @Override
-    public boolean execute(Input input, Tracker tracker) {
+    public boolean execute(Input input, ItemRepository itemRepository) {
         out.println("=== Create a new Item ====");
-        String name = input.askStr("Enter name: ");
+        String name = input.printQuestionAndReadAnswer("Enter name: ");
         Item item = new Item(name);
-        tracker.add(item);
+        itemRepository.add(item);
         return true;
     }
 }

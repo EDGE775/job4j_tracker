@@ -1,5 +1,7 @@
 package ru.job4j.tracker;
 
+import ru.job4j.tracker.data.repository.ItemRepository;
+
 public class ExitAction implements UserAction {
     @Override
     public String name() {
@@ -7,7 +9,7 @@ public class ExitAction implements UserAction {
     }
 
     @Override
-    public boolean execute(Input input, Tracker tracker) {
+    public boolean execute(Input input, ItemRepository itemRepository) {
         return false;
     }
 }

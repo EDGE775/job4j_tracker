@@ -1,5 +1,8 @@
 package ru.job4j.tracker;
 
+import ru.job4j.tracker.data.entity.Item;
+import ru.job4j.tracker.data.repository.ItemRepository;
+
 public class ReplaceItemAction implements UserAction {
     private final Output out;
 
@@ -13,12 +16,12 @@ public class ReplaceItemAction implements UserAction {
     }
 
     @Override
-    public boolean execute(Input input, Tracker tracker) {
+    public boolean execute(Input input, ItemRepository itemRepository) {
         out.println("=== Edit Item ====");
         int id = input.askInt("Enter the Item id to edit: ");
-        String newName = input.askStr("Enter the new Item name: ");
+        String newName = input.printQuestionAndReadAnswer("Enter the new Item name: ");
         Item newItem = new Item(id, newName);
-        if (tracker.replace(id, newItem)) {
+        if (itemRepository.replace(id, newItem)) {
             out.println("Операция выполнена успешно!");
         } else {
             out.println("Ошибка! Операция не выполнена!");

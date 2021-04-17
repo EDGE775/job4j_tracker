@@ -5,12 +5,9 @@ import ru.job4j.tracker.data.entity.Item;
 import java.util.ArrayList;
 import java.util.List;
 
-public final class ItemRepository extends SingletonRepository implements ItemRepositoryInterface {
+public final class ItemRepository implements ItemRepositoryInterface {
     private final List<Item> items = new ArrayList<>();
     private int ids = 1;
-
-    private ItemRepository() {
-    }
 
     @Override
     public Item add(Item item) {

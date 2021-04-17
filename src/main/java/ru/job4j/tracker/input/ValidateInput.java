@@ -1,4 +1,6 @@
-package ru.job4j.tracker;
+package ru.job4j.tracker.input;
+
+import ru.job4j.tracker.output.Output;
 
 public class ValidateInput implements Input {
     private final Output out;
@@ -23,6 +25,7 @@ public class ValidateInput implements Input {
                 value = in.askInt(question);
                 invalid = false;
             } catch (NumberFormatException nfe) {
+                nfe.printStackTrace();
                 out.println("Please enter validate data again.");
             }
         } while (invalid);

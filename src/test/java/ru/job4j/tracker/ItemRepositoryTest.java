@@ -3,6 +3,7 @@ package ru.job4j.tracker;
 import org.junit.Test;
 import ru.job4j.tracker.data.entity.Item;
 import ru.job4j.tracker.data.repository.ItemRepository;
+import ru.job4j.tracker.data.repository.ItemRepositoryInterface;
 
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.nullValue;
@@ -11,7 +12,7 @@ import static org.junit.Assert.assertThat;
 public class ItemRepositoryTest {
     @Test
     public void whenAddNewItemThenTrackerHasSameItem() {
-        ItemRepository itemRepository = ItemRepository.getInstance();
+        ItemRepositoryInterface itemRepository = new ItemRepository();
         itemRepository.clearAll();
         Item item = new Item();
         item.setName("test1");
@@ -22,7 +23,7 @@ public class ItemRepositoryTest {
 
     @Test
     public void whenReplace() {
-        ItemRepository itemRepository = ItemRepository.getInstance();
+        ItemRepositoryInterface itemRepository = new ItemRepository();
         itemRepository.clearAll();
         Item bug = new Item();
         bug.setName("Bug");
@@ -36,7 +37,7 @@ public class ItemRepositoryTest {
 
     @Test
     public void whenDelete() {
-        ItemRepository itemRepository = ItemRepository.getInstance();
+        ItemRepositoryInterface itemRepository = new ItemRepository();
         itemRepository.clearAll();
         Item bug = new Item();
         bug.setName("Bug");

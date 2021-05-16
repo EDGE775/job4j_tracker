@@ -1,5 +1,6 @@
 package ru.job4j.tracker;
 
+import org.junit.Ignore;
 import org.junit.Test;
 import ru.job4j.tracker.action.*;
 import ru.job4j.tracker.action.impl.*;
@@ -182,18 +183,19 @@ public class ApplicationTest {
                         + "7. EXIT" + System.lineSeparator()));
     }
 
-//    @Test (expected = IllegalArgumentException.class)
-//    public void whenInvalidExit() {
-//        Output out = new StubOutput();
-//        Input in = new StubInput(new String[]{"1", "7"});
-//        ItemRepositoryInterface itemRepository = new ItemRepository();
-//        List<UserAction> actions = Arrays.asList(
-//                new ExitAction(out));
-//        Application application = new Application();
-//        application.setItemRepositoryInterface(itemRepository);
-//        application.setOutput(out);
-//        application.setInput(in);
-//        application.setActions(actions);
-//        application.start();
-//    }
+    @Ignore
+    @Test (expected = IllegalArgumentException.class)
+    public void whenInvalidExit() {
+        Output out = new StubOutput();
+        Input in = new StubInput(new String[]{"1", "7"});
+        ItemRepositoryInterface itemRepository = new ItemRepository();
+        List<UserAction> actions = Arrays.asList(
+                new ExitAction(out));
+        Application application = new Application();
+        application.setItemRepositoryInterface(itemRepository);
+        application.setOutput(out);
+        application.setInput(in);
+        application.setActions(actions);
+        application.start();
+    }
 }
